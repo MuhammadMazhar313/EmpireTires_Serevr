@@ -17,7 +17,7 @@ router.delete('/', function (req, res) {
 });
 
 
-/* GET programming languages. */
+/* GET All Users */
 router.get('/getAllUsers', async function (req, res, next) {
     try {
         res.json(await users.getMultiple(req.query.page));
@@ -27,12 +27,23 @@ router.get('/getAllUsers', async function (req, res, next) {
     }
 });
 
-/* POST USER */
+/* POST AddUser */
 router.post('/addUser', async function (req, res, next) {
     try {
         res.json(await users.addNewUser(req.body));
     } catch (err) {
         console.error(`Error while adding new user `, err.message);
+        next(err);
+    }
+});
+
+
+/* POST Login */
+router.post('/login', async function (req, res, next) {
+    try {
+        res.json(await users.login(req.body));
+    } catch (err) {
+        console.error(`Error while login user`, err.message);
         next(err);
     }
 });

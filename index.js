@@ -32,6 +32,7 @@ app.delete('/delete', router);
 
 app.get("/getAllUsers", router);
 app.post("/addUser", router);
+app.post("/login", router);
 
 /* Error handler middleware */
 app.use((err, req, res, next) => {
