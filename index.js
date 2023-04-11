@@ -30,9 +30,15 @@ app.post('/post', router);
 app.put('/put', router);
 app.delete('/delete', router);
 
+// user
 app.get("/getAllUsers", router);
 app.post("/addUser", router);
 app.post("/login", router);
+
+// tire
+app.post("/addNewTire", router);
+
+
 
 /* Error handler middleware */
 app.use((err, req, res, next) => {
