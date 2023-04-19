@@ -18,7 +18,6 @@ async function addNewTire(Tire) {
 
     let response = success("Tire Added Successfully", { data: "" }, 200);
 
-
     return {
         response
     }
