@@ -24,6 +24,7 @@ async function addNewTire(Tire) {
 }
 
 
+
 module.exports = {
     addNewTire
 }
