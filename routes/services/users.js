@@ -24,7 +24,7 @@ async function addNewUser(User) {
     console.log("user object:", User);
     const rows = await db.query(
         // password pending
-        "INSERT INTO `users`(`UserName`,`ContactNo`, `Address`) VALUES ('" + User.userName + "','" + User.contactNo + "','" + User.address + "')"
+        "INSERT INTO `users`(`UserName`, `password`, `ContactNo`, `Address`) VALUES ('" + User.userName + "','" + User.password + "','" + User.contactNo + "','" + User.address + "')"
     );
     // const data = helper.emptyOrRows(rows);
     // const meta = { page };
