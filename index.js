@@ -36,7 +36,8 @@ app.post("/addUser", router);
 app.post("/login", router);
 
 // tire
-app.post("/addNewTire", router);
+app.get("/getAllTires", router);
+app.post("/addTire", router);
 
 
 

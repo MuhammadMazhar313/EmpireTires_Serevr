@@ -51,11 +51,21 @@ router.post('/login', async function (req, res, next) {
 });
 
 /* POST Add Tire */
-router.post('/addNewTire', async function (req, res, next) {
+router.post('/addTire', async function (req, res, next) {
     try {
         res.json(await tires.addNewTire(req.body));
     } catch (err) {
         console.error(`Error while adding new tire `, err.message);
+        next(err);
+    }
+});
+
+/* GET Add Tire */
+router.get('/getAllTires', async function (req, res, next) {
+    try {
+        res.json(await tires.getAllTires());
+    } catch (err) {
+        console.error(`Error while getting tires `, err.message);
         next(err);
     }
 });
