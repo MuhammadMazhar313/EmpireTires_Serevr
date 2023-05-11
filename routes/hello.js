@@ -60,7 +60,7 @@ router.post('/addTire', async function (req, res, next) {
     }
 });
 
-/* GET Add Tire */
+/* GET get All Tire */
 router.get('/getAllTires', async function (req, res, next) {
     try {
         res.json(await tires.getAllTires());

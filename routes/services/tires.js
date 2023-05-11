@@ -33,7 +33,7 @@ async function getAllTires() {
     // const data = helper.emptyOrRows(rows);
     // const meta = { page };
 
-    let response = success("All tires listed Successfully", { data: helper.emptyOrRows(rows) }, 200);
+    let response = success("All tires listed Successfully", { data: rows }, 200); //helper.emptyOrRows(rows)
 
     return {
         response
