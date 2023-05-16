@@ -40,7 +40,6 @@ async function getAllTires() {
     }
 }
 
-
 module.exports = {
     addNewTire,
     getAllTires
