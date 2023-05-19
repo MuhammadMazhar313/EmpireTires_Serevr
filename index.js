@@ -49,8 +49,6 @@ app.use((err, req, res, next) => {
     return;
 });
 
-
-
 // port test
 const port = process.env.PORT || 5500;
 app.listen(port, () => console.log(`Listening on Port: ${port}`));
