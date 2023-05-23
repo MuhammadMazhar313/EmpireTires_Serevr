@@ -38,6 +38,7 @@ app.post("/login", router);
 // tire
 app.get("/getAllTires", router);
 app.post("/addTire", router);
+app.post("/getTireByID", router);
 
 
 

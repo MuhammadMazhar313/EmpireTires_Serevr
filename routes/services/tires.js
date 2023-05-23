@@ -39,8 +39,25 @@ async function getAllTires() {
     }
 }
 
+async function getTireByID(Tire) {
+    // const offset = helper.getOffset(page, config.listPerPage);
+    // var sqlQuery = "INSERT INTO `users`(`UserName`,`ContactNo`, `Address`) VALUES ('" + req.body.name + "','" + req.body.email + "','" + req.body.description + "')";
+    // console.log("Tire object:", Tire);
+    const rows = await db.query(
+        "SELECT * FROM `Tire` WHERE tire_id = '" + Tire.tireID + "'"
+    );
+    // const data = helper.emptyOrRows(rows);
+    // const meta = { page };
+
+    let response = success("Tire retrieved Successfully", { data: helper.emptyOrRows(rows) }, 200); //helper.emptyOrRows(rows)
+
+    return {
+        response
+    }
+}
 
 module.exports = {
     addNewTire,
-    getAllTires
+    getAllTires,
+    getTireByID
 }

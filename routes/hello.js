@@ -70,4 +70,15 @@ router.get('/getAllTires', async function (req, res, next) {
     }
 });
 
+
+/* POST get Tire By ID */
+router.post('/getTireByID', async function (req, res, next) {
+    try {
+        res.json(await tires.getTireByID(req.body));
+    } catch (err) {
+        console.error(`Error while getting tires `, err.message);
+        next(err);
+    }
+});
+
 module.exports = router;
