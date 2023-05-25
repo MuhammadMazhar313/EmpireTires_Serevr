@@ -61,12 +61,12 @@ async function sellTire(Tire) {
     // var sqlQuery = "INSERT INTO `users`(`UserName`,`ContactNo`, `Address`) VALUES ('" + req.body.name + "','" + req.body.email + "','" + req.body.description + "')";
     // console.log("Tire object:", Tire);
     const rows = await db.query(
-        "INSERT INTO`Sales`(`tire_id`, `sale_amount`, `sale_date`, `buyer_detail`, `comments`, `is_active`) VALUES('[value-1]', '[value-2]', '[value-3]', '[value-4]', '[value-5]', '[value-6]', '[value-7]')"
+        "INSERT INTO`Sales`(`tire_id`, `sale_amount`, `sale_date`, `buyer_detail`, `comments`, `is_active`) VALUES('" + Tire.tireID + "', '" + Tire.tireAmount + "', '" + Tire.saleDate + "', '" + Tire.buyerDetail + "', '" + Tire.comments + "', '1')"
     );
     // const data = helper.emptyOrRows(rows);
     // const meta = { page };
 
-    let response = success("Tire sold successfully", { data: helper.emptyOrRows(rows) }, 200); //helper.emptyOrRows(rows)
+    let response = success("Tire sold successfully", { data: ""}, 200); //helper.emptyOrRows(rows)
 
     return {
         response
@@ -78,5 +78,6 @@ async function sellTire(Tire) {
 module.exports = {
     addNewTire,
     getAllTires,
-    getTireByID
+    getTireByID,
+    sellTire
 }

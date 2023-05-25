@@ -81,4 +81,16 @@ router.post('/getTireByID', async function (req, res, next) {
     }
 });
 
+/* POST sell Tire By ID */
+router.post('/sellTire', async function (req, res, next) {
+    try {
+        res.json(await tires.sellTire(req.body));
+    } catch (err) {
+        console.error(`Error while getting tires `, err.message);
+        next(err);
+    }
+});
+
+
+
 module.exports = router;
