@@ -24,9 +24,10 @@ exports.success = (message, results, statusCode) => {
  * @desc    Send any error response
  *
  * @param   {string} message
+ * * @param   {object | array} results
  * @param   {number} statusCode
  */
-exports.error = (message, statusCode) => {
+exports.errorObj = (message, results, statusCode) => {
     // List of common HTTP request code
     const codes = [200, 201, 400, 401, 404, 403, 422, 500];
 
@@ -38,8 +39,9 @@ exports.error = (message, statusCode) => {
 
     return {
         message,
+        error: true,
         code: statusCode,
-        error: true
+        results
     };
 };
 

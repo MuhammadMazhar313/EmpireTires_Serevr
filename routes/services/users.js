@@ -2,7 +2,7 @@ const db = require('./db');
 const helper = require('../../helper');
 const config = require('../../config');
 // Import the responseApi.js
-const { success, error, validation } = require("./BaseResponse");
+const { success, error, validation, errorObj } = require("./BaseResponse");
 
 async function getMultiple(page = 1) {
     const offset = helper.getOffset(page, config.listPerPage);
@@ -42,23 +42,28 @@ async function login(User) {
     // const offset = helper.getOffset(page, config.listPerPage);
     // var sqlQuery = "INSERT INTO `users`(`UserName`,`ContactNo`, `Address`) VALUES ('" + req.body.name + "','" + req.body.email + "','" + req.body.description + "')";
     console.log("user object:", User);
+
+    let response
+try{
     const rows = await db.query(
         "SELECT * FROM `users` WHERE UserName = '" + User.userName + "' AND password = '" + User.password + "'"
     );
     // const data = helper.emptyOrRows(rows);
     if (rows.length > 0) {
         console.log(rows)
-        let response = success("User LoggedIn successfully", { user: helper.emptyOrRows(rows) }, 200)
-        return {
-            response
-        }
+        response = success("User LoggedIn successfully", { user: helper.emptyOrRows(rows) }, 200)
     } else {
-        let response = error("Incorrect UserName or password", 200)
-        return {
-            response
-        }
+        response = errorObj("Incorrect UserName or password", {}, 200)
     }
-
+} catch (error) {
+    response = errorObj(" Something went wrong, please enter correct user name or password ", {}, 200)
+    // return 
+}
+finally {
+    return {
+        response
+    }
+}
 
 }
 

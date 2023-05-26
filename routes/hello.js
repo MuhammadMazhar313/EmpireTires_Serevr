@@ -76,7 +76,7 @@ router.post('/getTireByID', async function (req, res, next) {
     try {
         res.json(await tires.getTireByID(req.body));
     } catch (err) {
-        console.error(`Error while getting tires `, err.message);
+        console.error(`Error while getting tire `, err.message);
         next(err);
     }
 });
@@ -86,7 +86,7 @@ router.post('/sellTire', async function (req, res, next) {
     try {
         res.json(await tires.sellTire(req.body));
     } catch (err) {
-        console.error(`Error while getting tires `, err.message);
+        console.error(`Error while selling tires `, err.message);
         next(err);
     }
 });
