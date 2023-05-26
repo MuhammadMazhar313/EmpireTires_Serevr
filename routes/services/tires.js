@@ -15,7 +15,7 @@ async function addNewTire(Tire) {
     // const data = helper.emptyOrRows(rows);
     // const meta = { page };
 
-    let response = success("Tire Added Successfully", { data: "" }, 200);
+    let response = success("Tire added successfully", {}, 200);
 
     return {
         response
@@ -32,7 +32,7 @@ async function getAllTires() {
     // const data = helper.emptyOrRows(rows);
     // const meta = { page };
 
-    let response = success("All tires listed Successfully", { data: rows }, 200); //helper.emptyOrRows(rows)
+    let response = success("All tires listed successfully", { data: rows }, 200); //helper.emptyOrRows(rows)
 
     return {
         response
@@ -49,7 +49,7 @@ async function getTireByID(Tire) {
     // const data = helper.emptyOrRows(rows);
     // const meta = { page };
 
-    let response = success("Tire retrieved Successfully", { data: helper.emptyOrRows(rows) }, 200); //helper.emptyOrRows(rows)
+    let response = success("Tire retrieved successfully", { data: helper.emptyOrRows(rows) }, 200); //helper.emptyOrRows(rows)
 
     return {
         response
@@ -66,7 +66,7 @@ async function sellTire(Tire) {
     // const data = helper.emptyOrRows(rows);
     // const meta = { page };
 
-    let response = success("Tire sold successfully", { data: ""}, 200); //helper.emptyOrRows(rows)
+    let response = success("Tire sold successfully", {}, 200); //helper.emptyOrRows(rows)
 
     return {
         response
