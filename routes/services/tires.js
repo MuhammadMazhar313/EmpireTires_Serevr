@@ -98,7 +98,7 @@ async function sellTire(Tire) {
         // const data = helper.emptyOrRows(rows);
         // const meta = { page };
 
-        let response = success("Tire sold successfully", {}, 200); //helper.emptyOrRows(rows)
+        response = success("Tire sold successfully", {}, 200); //helper.emptyOrRows(rows)
 
     } catch (error) {
         response = errorObj(" " + error, {}, 200)
