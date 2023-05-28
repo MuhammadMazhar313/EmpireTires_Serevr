@@ -98,6 +98,10 @@ async function sellTire(Tire) {
         // const data = helper.emptyOrRows(rows);
         // const meta = { page };
 
+        const temp = await db.query(
+            "UPDATE`Tire` SET`status` = 'S' WHERE`tire_id` = '" + Tire.tireID + "'"
+        );
+
         response = success("Tire sold successfully", {}, 200); //helper.emptyOrRows(rows)
 
     } catch (error) {
