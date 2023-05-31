@@ -47,7 +47,7 @@ async function getAllTires() {
         );
         // const data = helper.emptyOrRows(rows);
         // const meta = { page };
-        if (rows > 0) {
+        if (rows.length > 0) {
             response = success("All tires listed successfully", { data: rows }, 200); //helper.emptyOrRows(rows)
         } else {
             response = success("No tire found", { data: rows }, 200); //helper.emptyOrRows(rows)
@@ -78,7 +78,7 @@ async function getTireByID(Tire) {
         );
         // const data = helper.emptyOrRows(rows);
         // const meta = { page };
-        if (rows > 0) {
+        if (rows.length > 0) {
             response = success("Tire retrieved successfully", { data: helper.emptyOrRows(rows) }, 200); //helper.emptyOrRows(rows)
         } else {
             response = success("No tire found", { data: helper.emptyOrRows(rows) }, 200); //helper.emptyOrRows(rows)
@@ -108,7 +108,7 @@ async function getTireByCode(Tire) {
         );
         // const data = helper.emptyOrRows(rows);
         // const meta = { page };
-        if (rows > 0) {
+        if (rows.length > 0) {
             response = success("Tire retrieved successfully(using code)", { data: helper.emptyOrRows(rows) }, 200); //helper.emptyOrRows(rows)
         } else {
             response = success("No tire found", { data: helper.emptyOrRows(rows) }, 200); //helper.emptyOrRows(rows)
