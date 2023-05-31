@@ -86,6 +86,31 @@ async function getTireByID(Tire) {
     }
 }
 
+async function getTireByCode(Tire) {
+    // const offset = helper.getOffset(page, config.listPerPage);
+    // var sqlQuery = "INSERT INTO `users`(`UserName`,`ContactNo`, `Address`) VALUES ('" + req.body.name + "','" + req.body.email + "','" + req.body.description + "')";
+    // console.log("Tire object:", Tire);
+    let response
+    try {
+
+        const rows = await db.query(
+            "SELECT * FROM `Tire` WHERE tire_code = '" + Tire.tireCode + "'"
+        );
+        // const data = helper.emptyOrRows(rows);
+        // const meta = { page };
+
+        response = success("Tire retrieved successfully(using code)", { data: helper.emptyOrRows(rows) }, 200); //helper.emptyOrRows(rows)
+    } catch (error) {
+        response = errorObj(" " + error, {}, 200)
+        // return 
+    }
+    finally {
+        return {
+            response
+        }
+    }
+}
+
 async function sellTire(Tire) {
     // const offset = helper.getOffset(page, config.listPerPage);
     // var sqlQuery = "INSERT INTO `users`(`UserName`,`ContactNo`, `Address`) VALUES ('" + req.body.name + "','" + req.body.email + "','" + req.body.description + "')";
@@ -121,5 +146,6 @@ module.exports = {
     addNewTire,
     getAllTires,
     getTireByID,
-    sellTire
+    sellTire,
+    getTireByCode
 }
