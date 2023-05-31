@@ -81,12 +81,22 @@ router.post('/getTireByID', async function (req, res, next) {
     }
 });
 
+/* POST get Tire By Code */
+router.post('/getTireByCode', async function (req, res, next) {
+    try {
+        res.json(await tires.getTireByCode(req.body));
+    } catch (err) {
+        console.error(`Error while getting tire `, err.message);
+        next(err);
+    }
+});
+
 /* POST sell Tire By ID */
 router.post('/sellTire', async function (req, res, next) {
     try {
         res.json(await tires.sellTire(req.body));
     } catch (err) {
-        console.error(`Error while selling tires `, err.message);
+        console.error(`Error while selling tire `, err.message);
         next(err);
     }
 });

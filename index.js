@@ -40,6 +40,7 @@ app.get("/getAllTires", router);
 app.post("/addTire", router);
 app.post("/sellTire", router);
 app.post("/getTireByID", router);
+app.post("/getTireByCode", router);
 
 
 

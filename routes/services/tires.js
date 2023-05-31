@@ -47,8 +47,13 @@ async function getAllTires() {
         );
         // const data = helper.emptyOrRows(rows);
         // const meta = { page };
+        if (rows > 0) {
+            response = success("All tires listed successfully", { data: rows }, 200); //helper.emptyOrRows(rows)
+        } else {
+            response = success("No tire found", { data: rows }, 200); //helper.emptyOrRows(rows)
 
-        response = success("All tires listed successfully", { data: rows }, 200); //helper.emptyOrRows(rows)
+        }
+
 
     } catch (error) {
         response = errorObj(" " + error, {}, 200)
@@ -73,8 +78,13 @@ async function getTireByID(Tire) {
         );
         // const data = helper.emptyOrRows(rows);
         // const meta = { page };
+        if (rows > 0) {
+            response = success("Tire retrieved successfully", { data: helper.emptyOrRows(rows) }, 200); //helper.emptyOrRows(rows)
+        } else {
+            response = success("No tire found", { data: helper.emptyOrRows(rows) }, 200); //helper.emptyOrRows(rows)
 
-        response = success("Tire retrieved successfully", { data: helper.emptyOrRows(rows) }, 200); //helper.emptyOrRows(rows)
+        }
+
     } catch (error) {
         response = errorObj(" " + error, {}, 200)
         // return 
@@ -98,8 +108,12 @@ async function getTireByCode(Tire) {
         );
         // const data = helper.emptyOrRows(rows);
         // const meta = { page };
+        if (rows > 0) {
+            response = success("Tire retrieved successfully(using code)", { data: helper.emptyOrRows(rows) }, 200); //helper.emptyOrRows(rows)
+        } else {
+            response = success("No tire found", { data: helper.emptyOrRows(rows) }, 200); //helper.emptyOrRows(rows)
+        }
 
-        response = success("Tire retrieved successfully(using code)", { data: helper.emptyOrRows(rows) }, 200); //helper.emptyOrRows(rows)
     } catch (error) {
         response = errorObj(" " + error, {}, 200)
         // return 
@@ -126,7 +140,6 @@ async function sellTire(Tire) {
         const temp = await db.query(
             "UPDATE`Tire` SET`status` = 'S' WHERE`tire_id` = '" + Tire.tireID + "'"
         );
-
         response = success("Tire sold successfully", {}, 200); //helper.emptyOrRows(rows)
 
     } catch (error) {
