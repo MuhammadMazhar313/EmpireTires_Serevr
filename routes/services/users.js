@@ -44,26 +44,26 @@ async function login(User) {
     console.log("user object:", User);
 
     let response
-try{
-    const rows = await db.query(
-        "SELECT * FROM `users` WHERE UserName = '" + User.userName + "' AND password = '" + User.password + "'"
-    );
-    // const data = helper.emptyOrRows(rows);
-    if (rows.length > 0) {
-        console.log(rows)
-        response = success("User LoggedIn successfully", { user: helper.emptyOrRows(rows) }, 200)
-    } else {
-        response = errorObj("Incorrect UserName or password", {}, 200)
+    try {
+        const rows = await db.query(
+            "SELECT * FROM `users` WHERE UserName = '" + User.userName + "' AND password = '" + User.password + "'"
+        );
+
+        if (rows.length > 0) {
+            console.log(rows)
+            response = success("User LoggedIn successfully", { user: helper.emptyOrRows(rows) }, 200)
+        } else {
+            response = errorObj("Incorrect UserName or password", {}, 200)
+        }
+    } catch (error) {
+        response = errorObj(" Something went wrong, please enter correct user name or password ", {}, 200)
+        // return 
     }
-} catch (error) {
-    response = errorObj(" Something went wrong, please enter correct user name or password ", {}, 200)
-    // return 
-}
-finally {
-    return {
-        response
+    finally {
+        return {
+            response
+        }
     }
-}
 
 }
 
