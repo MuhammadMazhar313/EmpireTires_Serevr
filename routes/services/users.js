@@ -56,7 +56,7 @@ async function login(User) {
             response = errorObj("Incorrect UserName or password.", {}, 200)
         }
     } catch (error) {
-        response = errorObj(" Something went wrong, please enter correct user name or password ", {}, 200)
+        response = errorObj(" Something went wrong, Please enter correct user name or password ", {}, 200)
         // return 
     }
 
