@@ -19,9 +19,6 @@ async function addNewTire(Tire) {
 
         response = success("Tire added successfully", {}, 200);
 
-        // return {
-        //     response
-        // }
     } catch (error) {
         response = errorObj(" " + error, {}, 200)
         // return 
