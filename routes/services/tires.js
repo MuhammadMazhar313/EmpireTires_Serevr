@@ -46,7 +46,7 @@ async function getAllTires() {
         if (rows.length > 0) {
             response = success("All tires listed successfully", { data: rows }, 200); //helper.emptyOrRows(rows)
         } else {
-            response = success("No tire found", { data: rows }, 200); //helper.emptyOrRows(rows)
+            response = success("No tire found!", { data: rows }, 200); //helper.emptyOrRows(rows)
 
         }
 
