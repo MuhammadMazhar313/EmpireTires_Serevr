@@ -109,7 +109,7 @@ async function getTireByCode(Tire) {
         if (rows.length > 0) {
             response = success("Tire retrieved successfully(using code)", { data: helper.emptyOrRows(rows) }, 200); //helper.emptyOrRows(rows)
         } else {
-            response = success("No tire found", { data: helper.emptyOrRows(rows) }, 200); //helper.emptyOrRows(rows)
+            response = success("No tire found!", { data: helper.emptyOrRows(rows) }, 200); //helper.emptyOrRows(rows)
         }
 
     } catch (error) {
