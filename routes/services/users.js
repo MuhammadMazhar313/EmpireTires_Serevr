@@ -29,7 +29,7 @@ async function addNewUser(User) {
     // const data = helper.emptyOrRows(rows);
     // const meta = { page };
 
-    let response = success("User Added Successfully", { user: helper.emptyOrRows(rows) }, 200);
+    let response = success("User Added Successfully.", { user: helper.emptyOrRows(rows) }, 200);
 
     return {
         response
