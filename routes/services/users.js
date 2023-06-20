@@ -52,7 +52,7 @@ async function login(User) {
             console.log(rows)
             response = success("User LoggedIn successfully", { user: helper.emptyOrRows(rows) }, 200)
         } else {
-            response = errorObj("Incorrect UserName or password.", {}, 200)
+            response = errorObj("Incorrect UserName or password!", {}, 200)
         }
     } catch (error) {
         response = errorObj(" Something went wrong, Please enter correct user name or password ", {}, 200)
