@@ -33,7 +33,6 @@ async function addNewTire(Tire) {
 async function getAllTires() {
     // const offset = helper.getOffset(page, config.listPerPage);
     // var sqlQuery = "INSERT INTO `users`(`UserName`,`ContactNo`, `Address`) VALUES ('" + req.body.name + "','" + req.body.email + "','" + req.body.description + "')";
-    // console.log("Tire object:", Tire);
     let response
     try {
 
