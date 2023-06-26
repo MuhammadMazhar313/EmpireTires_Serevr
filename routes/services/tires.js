@@ -20,7 +20,6 @@ async function addNewTire(Tire) {
 
     } catch (error) {
         response = errorObj(" " + error, {}, 200)
-        // return 
     }
     finally {
         return {
