@@ -85,7 +85,6 @@ async function getTireByID(Tire) {
 
     } catch (error) {
         response = errorObj(" " + error, {}, 200)
-        // return 
     }
     finally {
         return {
