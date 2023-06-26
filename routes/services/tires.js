@@ -140,7 +140,6 @@ async function sellTire(Tire) {
 
     } catch (error) {
         response = errorObj(" " + error, {}, 200)
-        // return 
     }
     finally {
         return {
