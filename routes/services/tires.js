@@ -131,7 +131,7 @@ async function sellTire(Tire) {
         const temp = await db.query(
             "UPDATE`Tire` SET`status` = 'S' WHERE`tire_id` = '" + Tire.tireID + "'"
         );
-        response = success("Tire sold successfully", {}, 200);
+        response = success("Tire sold successfully!", {}, 200);
 
     } catch (error) {
         response = errorObj(" " + error, {}, 200)
