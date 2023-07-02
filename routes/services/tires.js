@@ -90,6 +90,7 @@ async function getTireByID(Tire) {
     }
 }
 
+
 async function getTireByCode(Tire) {
     // const offset = helper.getOffset(page, config.listPerPage);
     // var sqlQuery = "INSERT INTO `users`(`UserName`,`ContactNo`, `Address`) VALUES ('" + req.body.name + "','" + req.body.email + "','" + req.body.description + "')";
