@@ -22,7 +22,7 @@ router.delete('/', function (req, res) {
 /* GET All Users */
 router.get('/getAllUsers', async function (req, res, next) {
     try {
-        res.json(await users.getMultiple(req.query.page));
+        res.json(await users.getAllUsers(req.query.page));
     } catch (err) {
         console.error(`Error while getting AllUsers `, err.message);
         next(err);
