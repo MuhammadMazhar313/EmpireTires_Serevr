@@ -6,34 +6,34 @@ const config = require('../../config');
 
 const { success, error, validation, errorObj } = require("./BaseResponse");
 
-async function getAllSales() {
-    // const offset = helper.getOffset(page, config.listPerPage);
-    // var sqlQuery = "INSERT INTO `users`(`UserName`,`ContactNo`, `Address`) VALUES ('" + req.body.name + "','" + req.body.email + "','" + req.body.description + "')";
-    let response
-    try {
+// async function getAllSales() {
+//     // const offset = helper.getOffset(page, config.listPerPage);
+//     // var sqlQuery = "INSERT INTO `users`(`UserName`,`ContactNo`, `Address`) VALUES ('" + req.body.name + "','" + req.body.email + "','" + req.body.description + "')";
+//     let response
+//     try {
 
-        const rows = await db.query(
-            'SELECT * FROM `Sales`'
-        );
-        // const data = helper.emptyOrRows(rows);
-        // const meta = { page };
-        if (rows.length > 0) {
-            response = success("All sales listed successfully", { data: rows }, 200); //helper.emptyOrRows(rows)
-        } else {
-            response = success("No item found!", { data: rows }, 200); //helper.emptyOrRows(rows)
+//         const rows = await db.query(
+//             'SELECT * FROM `Sales`'
+//         );
+//         // const data = helper.emptyOrRows(rows);
+//         // const meta = { page };
+//         if (rows.length > 0) {
+//             response = success("All sales listed successfully", { data: rows }, 200); //helper.emptyOrRows(rows)
+//         } else {
+//             response = success("No item found!", { data: rows }, 200); //helper.emptyOrRows(rows)
 
-        }
+//         }
 
 
-    } catch (error) {
-        response = errorObj(" " + error, {}, 200)
-    }
-    finally {
-        return {
-            response
-        }
-    }
-}
+//     } catch (error) {
+//         response = errorObj(" " + error, {}, 200)
+//     }
+//     finally {
+//         return {
+//             response
+//         }
+//     }
+// }
 
 async function getSaleByID(Sale) {
     // const offset = helper.getOffset(page, config.listPerPage);
@@ -67,16 +67,30 @@ async function getSales(Sale) {
     // const offset = helper.getOffset(page, config.listPerPage);
     // var sqlQuery = "INSERT INTO `users`(`UserName`,`ContactNo`, `Address`) VALUES ('" + req.body.name + "','" + req.body.email + "','" + req.body.description + "')";
     let response
+    // var salesDate
+    var query
     try {
 
+        var nowDate = new Date();
+        var date = nowDate.getFullYear() + '-' + (nowDate.getMonth() + 1) + '-' + nowDate.getDate();
         // TODO:
-        // map sales filter value to date and get data
+        // Sale.salesDuration: map sales filter value to date and get data accordingly
         // all = 0
-        // daily = 1
+        // today = 1
         // weekly = 2
         // monthly = 3
+
+        if (Sale.salesDuration == "0") {
+            query = "SELECT * FROM `Sales`"
+        } else if (Sale.salesDuration == "1") {
+            query = "SELECT * FROM `Sales` WHERE sale_date = '" + date + "'"
+        }
+        // else if (Sale.salesDuration = "2") {
+        //     query = "SELECT * FROM `Sales` WHERE sale_date > '" + PrevDate + "' and sale_date < '" + date + "'"
+        // }
+
         const rows = await db.query(
-            "SELECT * FROM `Sales` WHERE sale_date = '" + Sale.salesFilter + "'"
+            query
         );
         // const data = helper.emptyOrRows(rows);
         // const meta = { page };
@@ -128,7 +142,7 @@ async function getSales(Sale) {
 
 
 module.exports = {
-    getAllSales,
+    // getAllSales,
     getSaleByID,
     getSales
 }

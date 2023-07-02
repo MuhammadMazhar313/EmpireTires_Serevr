@@ -42,6 +42,8 @@ app.post("/sellTire", router);
 app.post("/getTireByID", router);
 app.post("/getTireByCode", router);
 
+// sale
+app.post("/getSales", router);
 
 
 /* Error handler middleware */

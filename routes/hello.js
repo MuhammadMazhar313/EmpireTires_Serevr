@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const users = require('../routes/services/users');
 const tires = require('../routes/services/tires');
+const sales = require('../routes/services/sales');
 
 router.get('/get', function (req, res) {
     console.log('Get Mazhar')
@@ -101,6 +102,16 @@ router.post('/sellTire', async function (req, res, next) {
     }
 });
 
+
+/* POST get Sales By Duration */
+router.post('/getSales', async function (req, res, next) {
+    try {
+        res.json(await sales.getSales(req.body));
+    } catch (err) {
+        console.error(`Error while getting sales `, err.message);
+        next(err);
+    }
+});
 
 
 module.exports = router;
