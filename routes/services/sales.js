@@ -35,21 +35,57 @@ async function getAllSales() {
     }
 }
 
-async function sellTire(Tire) {
+async function getSaleByID(Sale) {
     // const offset = helper.getOffset(page, config.listPerPage);
     // var sqlQuery = "INSERT INTO `users`(`UserName`,`ContactNo`, `Address`) VALUES ('" + req.body.name + "','" + req.body.email + "','" + req.body.description + "')";
     let response
     try {
+
         const rows = await db.query(
-            "INSERT INTO`Sales`(`tire_id`, `sale_amount`, `sale_date`, `buyer_detail`, `comments`, `is_active`) VALUES('" + Tire.tireID + "', '" + Tire.tireAmount + "', '" + Tire.saleDate + "', '" + Tire.buyerDetail + "', '" + Tire.comments + "', '1')"
+            "SELECT * FROM `Sales` WHERE sale_id = '" + Sale.saleID + "'"
         );
         // const data = helper.emptyOrRows(rows);
         // const meta = { page };
+        if (rows.length > 0) {
+            response = success("Item retrieved successfully", { data: helper.emptyOrRows(rows) }, 200); //helper.emptyOrRows(rows)
+        } else {
+            response = success("No item found!", { data: helper.emptyOrRows(rows) }, 200); //helper.emptyOrRows(rows)
 
-        const temp = await db.query(
-            "UPDATE`Tire` SET`status` = 'S' WHERE`tire_id` = '" + Tire.tireID + "'"
+        }
+
+    } catch (error) {
+        response = errorObj(" " + error, {}, 200)
+    }
+    finally {
+        return {
+            response
+        }
+    }
+}
+
+async function getSales(Sale) {
+    // const offset = helper.getOffset(page, config.listPerPage);
+    // var sqlQuery = "INSERT INTO `users`(`UserName`,`ContactNo`, `Address`) VALUES ('" + req.body.name + "','" + req.body.email + "','" + req.body.description + "')";
+    let response
+    try {
+
+        // TODO:
+        // map sales filter value to date and get data
+        // all = 0
+        // daily = 1
+        // weekly = 2
+        // monthly = 3
+        const rows = await db.query(
+            "SELECT * FROM `Sales` WHERE sale_date = '" + Sale.salesFilter + "'"
         );
-        response = success("Tire sold successfully!", {}, 200);
+        // const data = helper.emptyOrRows(rows);
+        // const meta = { page };
+        if (rows.length > 0) {
+            response = success("Item retrieved successfully", { data: helper.emptyOrRows(rows) }, 200); //helper.emptyOrRows(rows)
+        } else {
+            response = success("No item found!", { data: helper.emptyOrRows(rows) }, 200); //helper.emptyOrRows(rows)
+
+        }
 
     } catch (error) {
         response = errorObj(" " + error, {}, 200)
@@ -63,8 +99,36 @@ async function sellTire(Tire) {
 
 
 
+// async function sellTire(Tire) {
+//     // const offset = helper.getOffset(page, config.listPerPage);
+//     // var sqlQuery = "INSERT INTO `users`(`UserName`,`ContactNo`, `Address`) VALUES ('" + req.body.name + "','" + req.body.email + "','" + req.body.description + "')";
+//     let response
+//     try {
+//         const rows = await db.query(
+//             "INSERT INTO`Sales`(`tire_id`, `sale_amount`, `sale_date`, `buyer_detail`, `comments`, `is_active`) VALUES('" + Tire.tireID + "', '" + Tire.tireAmount + "', '" + Tire.saleDate + "', '" + Tire.buyerDetail + "', '" + Tire.comments + "', '1')"
+//         );
+//         // const data = helper.emptyOrRows(rows);
+//         // const meta = { page };
+
+//         const temp = await db.query(
+//             "UPDATE`Tire` SET`status` = 'S' WHERE`tire_id` = '" + Tire.tireID + "'"
+//         );
+//         response = success("Tire sold successfully!", {}, 200);
+
+//     } catch (error) {
+//         response = errorObj(" " + error, {}, 200)
+//     }
+//     finally {
+//         return {
+//             response
+//         }
+//     }
+// }
+
+
+
 module.exports = {
     getAllSales,
-    getTireByID,
-    sellTire
+    getSaleByID,
+    getSales
 }
