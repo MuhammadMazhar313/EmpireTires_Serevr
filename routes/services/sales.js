@@ -100,7 +100,6 @@ async function getSales(Sale) {
             response = success("No item found!", { data: helper.emptyOrRows(rows) }, 200); //helper.emptyOrRows(rows)
 
         }
-
     } catch (error) {
         response = errorObj(" " + error, {}, 200)
     }
