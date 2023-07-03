@@ -89,7 +89,6 @@ async function getSales(Sale) {
         //     query = "SELECT * FROM `Sales` WHERE sale_date > '" + PrevDate + "' and sale_date < '" + date + "'"
         // }
 
-
         const rows = await db.query(
             query
         );
