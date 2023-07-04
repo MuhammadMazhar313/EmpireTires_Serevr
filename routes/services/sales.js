@@ -92,8 +92,6 @@ async function getSales(Sale) {
         const rows = await db.query(
             query
         );
-        // const data = helper.emptyOrRows(rows);
-        // const meta = { page };
         if (rows.length > 0) {
             response = success("Item retrieved successfully", { data: helper.emptyOrRows(rows) }, 200); //helper.emptyOrRows(rows)
         } else {
