@@ -73,7 +73,7 @@ async function getSales(Sale) {
 
         var nowDate = new Date();
         var date = nowDate.getFullYear() + '-' + (nowDate.getMonth() + 1) + '-' + nowDate.getDate();
-        // TODO:
+        // TODO: 
         // Sale.salesDuration: map sales filter value to date and get data accordingly
         // all = 0
         // today = 1
