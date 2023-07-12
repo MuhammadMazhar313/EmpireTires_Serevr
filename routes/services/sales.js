@@ -108,6 +108,7 @@ async function getSales(Sale) {
     }
 }
 
+
 // async function sellTire(Tire) {
 //     // const offset = helper.getOffset(page, config.listPerPage);
 //     // var sqlQuery = "INSERT INTO `users`(`UserName`,`ContactNo`, `Address`) VALUES ('" + req.body.name + "','" + req.body.email + "','" + req.body.description + "')";
