@@ -26,8 +26,6 @@ async function addNewUser(User) {
         // password pending
         "INSERT INTO `users`(`UserName`, `password`, `ContactNo`, `Address`) VALUES ('" + User.userName + "','" + User.password + "','" + User.contactNo + "','" + User.address + "')"
     );
-    // const data = helper.emptyOrRows(rows);
-    // const meta = { page };
 
     let response = success("User Added Successfully.", { user: helper.emptyOrRows(rows) }, 200);
 
