@@ -18,10 +18,8 @@ async function getAllUsers(page = 1) {
     }
 }
 
-
 //
 async function addNewUser(User) {
-    // const offset = helper.getOffset(page, config.listPerPage);
     // var sqlQuery = "INSERT INTO `users`(`UserName`,`ContactNo`, `Address`) VALUES ('" + req.body.name + "','" + req.body.email + "','" + req.body.description + "')";
     console.log("user object:", User);
     const rows = await db.query(
