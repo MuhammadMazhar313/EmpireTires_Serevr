@@ -8,7 +8,7 @@ const { success, error, validation, errorObj } = require("./BaseResponse");
 
 async function addNewTire(Tire) {
     console.log("Tire object:", Tire);
-    // TODO : generate barcode
+    // var sqlQuery = "INSERT INTO `users`(`UserName`,`ContactNo`, `Address`) VALUES ('" + req.body.name + "','" + req.body.email + "','" + req.body.description + "')";
     let response
     try {
         const rows = await db.query(
@@ -61,7 +61,7 @@ async function getAllTires() {
 }
 
 
- 
+
 async function getTireByID(Tire) {
     // const offset = helper.getOffset(page, config.listPerPage);
     // var sqlQuery = "INSERT INTO `users`(`UserName`,`ContactNo`, `Address`) VALUES ('" + req.body.name + "','" + req.body.email + "','" + req.body.description + "')";
