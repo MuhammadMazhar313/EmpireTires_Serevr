@@ -114,6 +114,15 @@ router.post('/getSales', async function (req, res, next) {
     }
 });
 
+/* GET get All Tools */
+router.get('/getAllTools', async function (req, res, next) {
+    try {
+        res.json(await tools.getAllTools());
+    } catch (err) {
+        console.error(`Error while getting tools `, err.message);
+        next(err);
+    }
+});
 
 /* POST Add Tool */
 router.post('/addNewTool', async function (req, res, next) {
@@ -125,6 +134,16 @@ router.post('/addNewTool', async function (req, res, next) {
     }
 });
 
+
+/* POST Get Tool By ID*/
+router.post('/getToolByID', async function (req, res, next) {
+    try {
+        res.json(await tools.getToolByID(req.body));
+    } catch (err) {
+        console.error(`Error while adding new tool `, err.message);
+        next(err);
+    }
+});
 
 
 module.exports = router;

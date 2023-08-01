@@ -46,7 +46,9 @@ app.post("/getTireByCode", router);
 app.post("/getSales", router);
 
 // Tool
+app.get("/getAllTools", router);
 app.post("/addNewTool", router);
+app.post("/getToolByID", router);
 
 /* Error handler middleware */
 app.use((err, req, res, next) => {

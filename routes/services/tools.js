@@ -69,14 +69,14 @@ async function getToolByID(Tool) {
     try {
 
         const rows = await db.query(
-            "SELECT * FROM `Tire` WHERE tire_id = '" + Tire.tireID + "'"
+            "SELECT * FROM `Tool` WHERE tool_id = '" + Tool.id + "'"
         );
         // const data = helper.emptyOrRows(rows);
         // const meta = { page };
         if (rows.length > 0) {
-            response = success("Tire retrieved successfully", { data: helper.emptyOrRows(rows) }, 200); //helper.emptyOrRows(rows)
+            response = success("Tool retrieved successfully", { data: helper.emptyOrRows(rows) }, 200); //helper.emptyOrRows(rows)
         } else {
-            response = success("No tire found!", { data: helper.emptyOrRows(rows) }, 200); //helper.emptyOrRows(rows)
+            response = success("No tool found!", { data: helper.emptyOrRows(rows) }, 200); //helper.emptyOrRows(rows)
 
         }
 
