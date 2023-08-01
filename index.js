@@ -45,6 +45,8 @@ app.post("/getTireByCode", router);
 // sale
 app.post("/getSales", router);
 
+// Tool
+app.post("/addNewTool", router);
 
 /* Error handler middleware */
 app.use((err, req, res, next) => {

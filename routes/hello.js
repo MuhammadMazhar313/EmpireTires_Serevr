@@ -4,6 +4,7 @@ const router = express.Router();
 const users = require('../routes/services/users');
 const tires = require('../routes/services/tires');
 const sales = require('../routes/services/sales');
+const tools = require('./services/tools');
 
 router.get('/get', function (req, res) {
     console.log('Get Mazhar')
@@ -112,6 +113,18 @@ router.post('/getSales', async function (req, res, next) {
         next(err);
     }
 });
+
+
+/* POST Add Tool */
+router.post('/addNewTool', async function (req, res, next) {
+    try {
+        res.json(await tools.addNewTool(req.body));
+    } catch (err) {
+        console.error(`Error while adding new tool `, err.message);
+        next(err);
+    }
+});
+
 
 
 module.exports = router;
