@@ -135,12 +135,12 @@ router.post('/addNewTool', async function (req, res, next) {
 });
 
 
-/* POST Get Tool By ID*/
+/* POST get tool By ID*/
 router.post('/getToolByID', async function (req, res, next) {
     try {
         res.json(await tools.getToolByID(req.body));
     } catch (err) {
-        console.error(`Error while adding new tool `, err.message);
+        console.error(`Error while getting specific tool `, err.message);
         next(err);
     }
 });
