@@ -31,6 +31,7 @@ async function addNewTool(Tool) {
 
 }
 
+
 async function getAllTools() {
     // const offset = helper.getOffset(page, config.listPerPage);
     // var sqlQuery = "INSERT INTO `users`(`UserName`,`ContactNo`, `Address`) VALUES ('" + req.body.name + "','" + req.body.email + "','" + req.body.description + "')";
@@ -61,7 +62,6 @@ async function getAllTools() {
 }
 
 
-
 async function getToolByID(Tool) {
     // const offset = helper.getOffset(page, config.listPerPage);
     // var sqlQuery = "INSERT INTO `users`(`UserName`,`ContactNo`, `Address`) VALUES ('" + req.body.name + "','" + req.body.email + "','" + req.body.description + "')";
@@ -89,10 +89,6 @@ async function getToolByID(Tool) {
         }
     }
 }
-
-
-
-
 
 module.exports = {
     addNewTool,

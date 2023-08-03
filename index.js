@@ -50,6 +50,7 @@ app.get("/getAllTools", router);
 app.post("/addNewTool", router);
 app.post("/getToolByID", router);
 
+
 /* Error handler middleware */
 app.use((err, req, res, next) => {
     const statusCode = err.statusCode || 500;
