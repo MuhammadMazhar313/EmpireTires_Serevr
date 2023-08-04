@@ -13,7 +13,6 @@ async function addNewTool(Tool) {
     try {
         const rows = await db.query(
             "INSERT INTO `Tool`(`name`, `description`, `catagory`, `model`, `pic`, `availability_status`) VALUES ('" + Tool.name + "','" + Tool.description + "','" + Tool.catagory + "','" + Tool.model + "','" + Tool.pic + "','Available')"
-            // "INSERT INTO`Tire`(`tire_code`, `tire_name`, `description`, `price`, `catagory`, `size`, `model`, `purchase_date`, `pic`, `supplier_detail`, `status`) VALUES('" + Tire.tireCode + "', '" + Tire.tireName + "','" + Tire.description + "', '" + Tire.price + "', '" + Tire.catagory + "', '" + Tire.size + "', '" + Tire.model + "', '" + Tire.purchase_date + "', '" + Tire.pic + "', '" + Tire.supplier_detail + "', '" + Tire.status + "')"
         );
         // const data = helper.emptyOrRows(rows);
         // const meta = { page };

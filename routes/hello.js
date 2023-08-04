@@ -26,7 +26,7 @@ router.get('/getAllUsers', async function (req, res, next) {
     try {
         res.json(await users.getAllUsers(req.query.page));
     } catch (err) {
-        console.error(`Error while getting AllUsers `, err.message);
+        console.error(`Error while getting AllUsers`, err.message);
         next(err);
     }
 });
@@ -36,7 +36,7 @@ router.post('/addUser', async function (req, res, next) {
     try {
         res.json(await users.addNewUser(req.body));
     } catch (err) {
-        console.error(`Error while adding new user `, err.message);
+        console.error(`Error while adding new user`, err.message);
         next(err);
     }
 });
@@ -57,7 +57,7 @@ router.post('/addTire', async function (req, res, next) {
     try {
         res.json(await tires.addNewTire(req.body));
     } catch (err) {
-        console.error(`Error while adding new tire `, err.message);
+        console.error(`Error while adding new tire`, err.message);
         next(err);
     }
 });
@@ -67,7 +67,7 @@ router.get('/getAllTires', async function (req, res, next) {
     try {
         res.json(await tires.getAllTires());
     } catch (err) {
-        console.error(`Error while getting tires `, err.message);
+        console.error(`Error while getting tires`, err.message);
         next(err);
     }
 });
@@ -78,7 +78,7 @@ router.post('/getTireByID', async function (req, res, next) {
     try {
         res.json(await tires.getTireByID(req.body));
     } catch (err) {
-        console.error(`Error while getting tire `, err.message);
+        console.error(`Error while getting tire`, err.message);
         next(err);
     }
 });
@@ -88,7 +88,7 @@ router.post('/getTireByCode', async function (req, res, next) {
     try {
         res.json(await tires.getTireByCode(req.body));
     } catch (err) {
-        console.error(`Error while getting tire `, err.message);
+        console.error(`Error while getting tire`, err.message);
         next(err);
     }
 });
@@ -98,7 +98,7 @@ router.post('/sellTire', async function (req, res, next) {
     try {
         res.json(await tires.sellTire(req.body));
     } catch (err) {
-        console.error(`Error while selling tire `, err.message);
+        console.error(`Error while selling tire`, err.message);
         next(err);
     }
 });
@@ -109,7 +109,7 @@ router.post('/getSales', async function (req, res, next) {
     try {
         res.json(await sales.getSales(req.body));
     } catch (err) {
-        console.error(`Error while getting sales `, err.message);
+        console.error(`Error while getting sales`, err.message);
         next(err);
     }
 });
@@ -119,17 +119,17 @@ router.get('/getAllTools', async function (req, res, next) {
     try {
         res.json(await tools.getAllTools());
     } catch (err) {
-        console.error(`Error while getting tools `, err.message);
+        console.error(`Error while getting tools`, err.message);
         next(err);
     }
 });
 
-/* POST Add Tool */
+/* POST Add new Tool */
 router.post('/addNewTool', async function (req, res, next) {
     try {
         res.json(await tools.addNewTool(req.body));
     } catch (err) {
-        console.error(`Error while adding new tool `, err.message);
+        console.error(`Error while adding new tool`, err.message);
         next(err);
     }
 });
@@ -140,7 +140,7 @@ router.post('/getToolByID', async function (req, res, next) {
     try {
         res.json(await tools.getToolByID(req.body));
     } catch (err) {
-        console.error(`Error while getting specific tool `, err.message);
+        console.error(`Error while getting tool`, err.message);
         next(err);
     }
 });
