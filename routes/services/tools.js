@@ -14,8 +14,6 @@ async function addNewTool(Tool) {
         const rows = await db.query(
             "INSERT INTO `Tool`(`name`, `description`, `catagory`, `model`, `pic`, `availability_status`) VALUES ('" + Tool.name + "','" + Tool.description + "','" + Tool.catagory + "','" + Tool.model + "','" + Tool.pic + "','Available')"
         );
-        // const data = helper.emptyOrRows(rows);
-        // const meta = { page };
 
         response = success("'" + Tool.name + "' added successfully", {}, 200);
 
