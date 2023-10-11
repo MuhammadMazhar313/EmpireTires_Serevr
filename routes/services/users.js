@@ -17,7 +17,6 @@ async function getAllUsers(page = 1) {
     }
 }
 
-//
 async function addNewUser(User) {
     console.log("user object:", User);
     const rows = await db.query(
