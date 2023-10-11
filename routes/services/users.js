@@ -3,6 +3,7 @@ const helper = require('../../helper');
 const config = require('../../config');
 const { success, error, validation, errorObj } = require("./BaseResponse");
 
+
 async function getAllUsers(page = 1) {
     const offset = helper.getOffset(page, config.listPerPage);
     const rows = await db.query(
