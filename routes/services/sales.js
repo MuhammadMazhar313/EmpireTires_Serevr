@@ -131,8 +131,6 @@ async function getSales(Sale) {
 //     }
 // }
 
-
-
 module.exports = {
     // getAllSales,
     getSaleByID,
