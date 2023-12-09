@@ -124,8 +124,6 @@ async function sellTire(Tire) {
         const rows = await db.query(
             "INSERT INTO`Sales`(`tire_id`, `sale_amount`, `sale_date`, `buyer_detail`, `comments`, `is_active`) VALUES('" + Tire.tireID + "', '" + Tire.tireAmount + "', '" + Tire.saleDate + "', '" + Tire.buyerDetail + "', '" + Tire.comments + "', '1')"
         );
-        // const data = helper.emptyOrRows(rows);
-        // const meta = { page };
 
         const temp = await db.query(
             "UPDATE`Tire` SET`status` = 'S' WHERE`tire_id` = '" + Tire.tireID + "'"
